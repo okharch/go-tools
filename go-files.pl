@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use JSON;
-$_ = join "", `go list -n -v -a -json -deps`;
+$_ = `go list -n -v -a -json -deps`;
 # convert it to array of records before parsing
 s/}\s*{/},{/g; 
 my $json = JSON->new->utf8->decode("[$_]");
